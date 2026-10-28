@@ -3,8 +3,10 @@ package com.petamparo.smarthouse.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+
 import org.hibernate.annotations.Generated;
 import org.hibernate.generator.EventType;
 
@@ -17,6 +19,10 @@ public class SensorReadingEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "device_id", nullable = false)
+    @org.hibernate.annotations.ColumnDefault(value = "'abrigo-01'")
+    private String deviceId;
 
     @Column(name = "temperature")
     private BigDecimal temperature;
@@ -42,4 +48,5 @@ public class SensorReadingEntity {
     @Generated(event = EventType.INSERT)
     @Column(name = "recorded_at", insertable = false, updatable = false)
     private OffsetDateTime recordedAt;
+
 }
