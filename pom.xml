@@ -81,6 +81,11 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.eclipse.paho</groupId>
+			<artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+			<version>1.2.5</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -88,6 +93,30 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>${flyway.version}</version>
+				<configuration>
+					<url>jdbc:postgresql://localhost:5432/smarthouse</url>
+					<user>postgres</user>
+					<locations>
+						<location>filesystem:src/main/resources/db/migration</location>
+					</locations>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.flywaydb</groupId>
+						<artifactId>flyway-database-postgresql</artifactId>
+						<version>${flyway.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.postgresql</groupId>
+						<artifactId>postgresql</artifactId>
+						<version>${postgresql.version}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
