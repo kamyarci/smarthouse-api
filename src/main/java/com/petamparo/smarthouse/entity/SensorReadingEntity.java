@@ -1,5 +1,6 @@
 package com.petamparo.smarthouse.entity;
 
+import com.petamparo.smarthouse.enums.HeaterMode;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -44,6 +45,13 @@ public class SensorReadingEntity {
 
     @Column(name = "water_percentage")
     private BigDecimal waterPercentage;
+
+    @Column(name = "heater_on")
+    private Boolean heaterOn;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "heater_mode")
+    private HeaterMode heaterMode;
 
     @Generated(event = EventType.INSERT)
     @Column(name = "recorded_at", insertable = false, updatable = false)
