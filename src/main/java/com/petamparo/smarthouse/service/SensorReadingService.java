@@ -46,6 +46,8 @@ public class SensorReadingService {
         sensorReading.setFoodPercentage(request.foodPercentage());
         sensorReading.setWaterWeightKg(request.waterWeightKg());
         sensorReading.setWaterPercentage(request.waterPercentage());
+        sensorReading.setHeaterOn(request.heaterOn());
+        sensorReading.setHeaterMode(request.heaterMode());
 
         SensorReadingEntity saved = sensorReadingRepository.save(sensorReading);
         alertService.evaluate(saved);
