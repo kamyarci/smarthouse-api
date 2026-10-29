@@ -1,5 +1,6 @@
 package com.petamparo.smarthouse.dto;
 
+import com.petamparo.smarthouse.enums.HeaterMode;
 import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
@@ -27,7 +28,6 @@ public record CreateSensorReadingRequestDTO(
         @PositiveOrZero
         BigDecimal foodWeightKg,
 
-
         @NotNull
         @DecimalMin("0.0")
         @DecimalMax("100.0")
@@ -40,7 +40,10 @@ public record CreateSensorReadingRequestDTO(
         @NotNull
         @DecimalMin("0.0")
         @DecimalMax("100.0")
-        BigDecimal waterPercentage
+        BigDecimal waterPercentage,
+
+        Boolean heaterOn,
+        HeaterMode heaterMode
 
 ) {
 }

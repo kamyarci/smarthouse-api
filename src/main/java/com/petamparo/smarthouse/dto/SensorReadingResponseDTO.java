@@ -1,6 +1,7 @@
 package com.petamparo.smarthouse.dto;
 
 import com.petamparo.smarthouse.entity.SensorReadingEntity;
+import com.petamparo.smarthouse.enums.HeaterMode;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -15,6 +16,8 @@ public record SensorReadingResponseDTO(
         BigDecimal foodPercentage,
         BigDecimal waterWeightKg,
         BigDecimal waterPercentage,
+        Boolean heaterOn,
+        HeaterMode heaterMode,
         OffsetDateTime recordedAt
 ) {
 
@@ -29,6 +32,8 @@ public record SensorReadingResponseDTO(
                 reading.getFoodPercentage(),
                 reading.getWaterWeightKg(),
                 reading.getWaterPercentage(),
+                reading.getHeaterOn(),
+                reading.getHeaterMode(),
                 reading.getRecordedAt()
         );
     }
