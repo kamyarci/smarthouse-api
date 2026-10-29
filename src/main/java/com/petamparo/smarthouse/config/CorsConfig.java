@@ -1,5 +1,6 @@
 package com.petamparo.smarthouse.config;
 
+import com.petamparo.smarthouse.security.ApiKeyInterceptor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -19,7 +20,7 @@ public class CorsConfig implements WebMvcConfigurer {
         registry.addMapping("/api/**")
                 .allowedOrigins(allowedOrigins)
                 .allowedMethods("GET", "POST", "PATCH", "OPTIONS")
-                .allowedHeaders("Content-Type")
+                .allowedHeaders("Content-Type", ApiKeyInterceptor.DEVICE_KEY_HEADER, ApiKeyInterceptor.ADMIN_KEY_HEADER)
                 .maxAge(3600);
     }
 }
