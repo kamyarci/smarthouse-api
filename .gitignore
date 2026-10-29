@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Credenciais (nunca commitar) ###
+.env
+src/main/resources/application-local.properties
+firmware/**/secrets.h

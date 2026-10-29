@@ -1,0 +1,5 @@
+# Bibliotecas usadas (Library Manager do Wokwi / Arduino IDE)
+DHT sensor library
+HX711
+PubSubClient
+ArduinoJson
