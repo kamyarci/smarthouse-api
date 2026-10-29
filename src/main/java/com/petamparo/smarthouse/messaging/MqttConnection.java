@@ -57,16 +57,18 @@ public class MqttConnection implements MqttCallbackExtended {
         }
     }
 
-    public void publish(String topic, String payload, boolean retained) {
+    public boolean publish(String topic, String payload, boolean retained) {
         if (!isConnected()) {
             log.warn("MQTT desconectado; mensagem para {} não foi publicada", topic);
-            return;
+            return false;
         }
         try {
             client.publish(topic, payload.getBytes(StandardCharsets.UTF_8), QOS, retained);
             log.info("Publicado em {}: {}", topic, payload);
+            return true;
         } catch (MqttException e) {
             log.warn("Falha ao publicar em {}: {}", topic, e.getMessage());
+            return false;
         }
     }
 
