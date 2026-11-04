@@ -146,7 +146,6 @@ function Chart({ points }: { points: ChartPoint[] }) {
 
 const MAX_TICKS = 8;
 
-// Marcas do eixo com passo redondo (5, 10, 20 ou 50), sem degraus irregulares
 function temperatureTicks(points: ChartPoint[]): number[] {
 	const temperatures = points.map((point) => point.temperature);
 	const min = Math.min(...temperatures) - 1;
