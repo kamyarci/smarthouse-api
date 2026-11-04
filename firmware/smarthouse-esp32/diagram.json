@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "author": "Kamyla Acosta Arci Oliveira",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -28.8, "left": -148.76, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -172.5,
+      "left": -264.6,
+      "attrs": { "temperature": "4.4", "humidity": "24.5" }
+    },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": -140, "left": -7.38, "attrs": {} },
+    {
+      "type": "wokwi-hx711",
+      "id": "cell1",
+      "top": 69.8,
+      "left": -535,
+      "attrs": { "type": "5kg" }
+    },
+    {
+      "type": "wokwi-hx711",
+      "id": "cell2",
+      "top": -103,
+      "left": -535,
+      "attrs": { "type": "5kg" }
+    },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 86.6, "left": 105.6, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 6, "left": 253.4, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 42.35,
+      "left": 172.8,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v57.6" ] ],
+    [ "dht1:SDA", "esp:15", "green", [ "v19.2", "h211.3", "v182.4" ] ],
+    [ "dht1:GND", "esp:GND.2", "black", [ "v9.6", "h172.8" ] ],
+    [ "pir1:VCC", "esp:3V3", "red", [ "v0", "h-192" ] ],
+    [ "pir1:GND", "esp:GND.2", "black", [ "v48", "h-96.26" ] ],
+    [ "pir1:OUT", "esp:13", "cyan", [ "v259.2", "h-220.94", "v-57.6" ] ],
+    [ "cell2:VCC", "esp:3V3", "red", [ "h-38.4", "v48", "h422.25" ] ],
+    [ "cell2:GND", "esp:GND.2", "black", [ "h-38.4", "v-125.1", "h518.4", "v57.6" ] ],
+    [ "cell2:DT", "esp:32", "#8f4814", [ "h-28.8", "v-67.7", "h268.8", "v19.2" ] ],
+    [ "cell2:SCK", "esp:33", "violet", [ "h-19.2", "v95.2", "h374.4", "v28.8" ] ],
+    [ "cell1:VCC", "esp:3V3", "red", [ "h-38.4", "v76.8", "h364.8", "v-201.6" ] ],
+    [ "cell1:GND", "esp:GND.1", "black", [ "h-28.8", "v-38.7", "h240", "v57.6", "h0", "v9.6" ] ],
+    [ "cell1:DT", "esp:25", "orange", [ "h-38.4", "v-58.1", "h259.2", "v28.8" ] ],
+    [ "cell1:SCK", "esp:26", "white", [ "h-28.8", "v76", "h336", "v-105.6" ] ],
+    [ "relay1:VCC", "esp:3V3", "red", [ "h-115.2", "v134.4", "h-182.4", "v-240" ] ],
+    [ "relay1:GND", "esp:GND.3", "black", [ "h-96", "v-58" ] ],
+    [ "relay1:IN", "esp:17", "yellow", [ "h-124.8", "v-29" ] ],
+    [ "relay1:NO", "led1:A", "violet", [ "h58.8", "v-69", "h-19.2" ] ],
+    [ "led1:C", "r1:2", "gold", [ "v0" ] ],
+    [ "r1:1", "esp:GND.3", "black", [ "v9.6", "h-124.8" ] ],
+    [ "esp:3V3", "relay1:COM", "red", [ "h-19.05", "v259.2", "h412.8", "v-144" ] ]
+  ],
+  "dependencies": {}
+}

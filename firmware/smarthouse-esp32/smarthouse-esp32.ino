@@ -137,6 +137,9 @@ void aplicarModoAquecimento(const JsonDocument& doc) {
   aquecimento.definirModo(modo);
   Serial.print("[AQUECIMENTO] Modo: ");
   Serial.println(modoParaTexto(modo));
+
+  controlarAquecimento(ultimaLeitura);
+  ultimoEnvio = 0;
 }
 
 void aoReceberMensagem(char* topico, byte* payload, unsigned int tamanho) {
@@ -185,6 +188,7 @@ void controlarAquecimento(const Leitura& leitura) {
   if (ligar != estavaLigado) {
     Serial.print("[AQUECIMENTO] Manta ");
     Serial.println(ligar ? "LIGADA" : "DESLIGADA");
+    ultimoEnvio = 0;
   }
 }
 

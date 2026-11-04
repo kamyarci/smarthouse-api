@@ -1,5 +1,8 @@
-# Bibliotecas usadas (Library Manager do Wokwi / Arduino IDE)
+# Wokwi Library List
+# See https://docs.wokwi.com/guides/libraries
+
 DHT sensor library
+Adafruit Unified Sensor
 HX711
 PubSubClient
 ArduinoJson
