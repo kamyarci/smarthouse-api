@@ -46,7 +46,7 @@ HX711 balancaAgua;
 WiFiClient wifiClient;
 PubSubClient mqtt(wifiClient);
 
-ControleAquecimento aquecimento({10.0, 13.0, 30.0});
+ControleAquecimento aquecimento({10.0, 13.0, 25.0});
 
 unsigned long intervaloEnvioMs = 10000;
 unsigned long ultimoEnvio = 0;
