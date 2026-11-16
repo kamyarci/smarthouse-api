@@ -11,6 +11,14 @@ import java.util.EnumMap;
 import java.util.Locale;
 import java.util.Map;
 
+
+/*
+* temperatura baixa: identifica se está abaixo dos limites configurados.
+* temperatura alta: verifica se ultrapassou o limite permitido.
+* água baixa: verifica se o reservatório está ficando vazio.
+* ração baixa: verifica se a quantidade de alimento está insuficiente.
+*/
+
 @Component
 public class AlertClassifier {
     private static final Locale PT_BR = Locale.forLanguageTag("pt-BR");
